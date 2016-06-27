@@ -1,4 +1,8 @@
-ImageMat = double(imread('code.jpg')); 
+fileName = 'code.jpg';
+folderName = '../data/test/lzq/';
+filePathName = strcat(folderName,fileName);
+
+ImageMat = double(imread(filePathName)); 
 
 dataLength = 8;
 blockNum = 60;
@@ -23,7 +27,7 @@ for i=1:blockNum
     end
 end
 transferedDataMat = transferedDataMat / (blockSize_x*blockSize_y)*cdmaCodeLength/255;
-cdmaDecodingInput = ones(blockNum*blockNum/4,cdmaCodeLength);
+cdmaDecodingInput = zeros(blockNum*blockNum/4,cdmaCodeLength);
 
 cdmaDecodingInput(:,1) = reshape(transferedDataMat(1:blockNum/2,1:blockNum/2),[blockNum*blockNum/4,1]);
 cdmaDecodingInput(:,2) = reshape(transferedDataMat(1:blockNum/2,blockNum/2+1:blockNum),[blockNum*blockNum/4,1]);

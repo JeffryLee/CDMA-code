@@ -1,3 +1,6 @@
+fileName = 'code.jpg';
+folderName = '../data/test/lzq/';
+filePathName = strcat(folderName,fileName);
 imageSize = 600;
 dataLength = 8;
 blockNum = 60;
@@ -56,4 +59,4 @@ for i=1:blockNum
     end
 end
 % uint8 (round(reshape(V_result(1,:),[x1,y1,z1])))
-imwrite(encodedMat, 'code.jpg');
+imwrite(encodedMat, filePathName);
